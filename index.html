@@ -3,6 +3,7 @@
     <head>
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <meta name ="apple-mobile-web-app-capable" content="yes"/>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
         <script>
@@ -10,7 +11,7 @@
                 init: function () {
                     var marker = this.el;
                     this.vid = document.querySelector("#vid");
-
+                   
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
@@ -22,6 +23,9 @@
                     }.bind(this));
                 },
             });
+        </script>
+        <script>
+            AFRAME.
         </script>
     </head>
 
@@ -41,7 +45,8 @@
                     preload="auto"
                     response-type="arraybuffer"
                     loop
-                    crossorigin
+                    crossorigin="anonymous"
+                    muted
                     webkit-playsinline
                     autoplay
                     playsinline
@@ -71,79 +76,7 @@
                     gesture-handler
                 ></a-video>
             </a-marker>
-            
-            <a-marker
-                type="pattern"
-                preset="custom"
-                url="assets/auditorium.patt"
-                videohandler
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-video
-                    src="#vid"
-                    scale="1 1 1"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
-            </a-marker>
-            
-            <a-marker
-                type="pattern"
-                preset="custom"
-                url="assets/eventspace.patt"
-                videohandler
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-video
-                    src="#vid"
-                    scale="1 1 1"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
-            </a-marker>
-            
-            <a-marker
-                type="pattern"
-                preset="custom"
-                url="assets/meetingroom.patt"
-                videohandler
-                smooth="true"
-                smoothCount="10"
-                smoothTolerance="0.01"
-                smoothThreshold="5"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-video
-                    src="#vid"
-                    scale="1 1 1"
-                    position="0 0.1 0"
-                    rotation="-90 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-video>
-            </a-marker>
-            <a-entity camera></a-entity>
+        <a-entity camera></a-entity>
         </a-scene>
     </body>
 </html>
